@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <title>The Spice Route | Authentic Flavors | Secured by @secure_with_rajat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Bree Serif', serif; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .bg-food-gradient { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop'); }
+    </style>
+</head>
+<body class="bg-[#fffcf7] text-gray-900 selection:bg-orange-500 selection:text-white overflow-x-hidden">
+
+<!-- Navbar -->
+<nav class="bg-white/90 backdrop-blur-md border-b border-orange-100 fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-orange-600">The Spice <span class="text-gray-900">Route</span></h1>
+        
+        <ul class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-gray-500">
+            <li><a href="#" class="hover:text-orange-600 transition-colors">Home</a></li>
+            <li><a href="#menu" class="hover:text-orange-600 transition-colors">Our Menu</a></li>
+            <li><a href="#special" class="hover:text-orange-600 transition-colors">Today's Special</a></li>
+            <li><a href="#contact" class="hover:text-orange-600 transition-colors">Find Us</a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <a href="javascript:void(0)" onclick="alert('DEMO: This button will be linked to your WhatsApp or Online Menu in the final website.')" class="hidden sm:block bg-orange-600 text-white px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-orange-200 transition-all hover:scale-105">Order Now</a>
+            <button id="menu-btn" class="md:hidden text-gray-900 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-[100] flex flex-col items-center justify-center space-y-8 text-2xl font-bold">
+        <button id="close-menu" class="absolute top-6 right-6 text-gray-900"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        <a href="#" class="hover:text-orange-600 menu-link">Home</a>
+        <a href="#menu" class="hover:text-orange-600 menu-link">Menu</a>
+        <a href="#special" class="hover:text-orange-600 menu-link">Specials</a>
+        <a href="javascript:void(0)" onclick="alert('DEMO: This button will be linked to your WhatsApp or Online Menu in the final website.')" class="bg-orange-600 text-white px-10 py-4 rounded-full menu-link text-lg">Order Now</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="h-screen bg-food-gradient bg-cover bg-center flex items-center justify-center text-center px-6">
+    <div class="max-w-4xl reveal">
+        <span class="text-orange-400 font-black tracking-[0.4em] uppercase text-xs mb-6 block">Experience Authentic Indian Cuisine</span>
+        <h2 class="text-5xl md:text-8xl font-bold text-white mb-8 leading-tight">Taste the Tradition in <span class="text-orange-500">Every Bite</span></h2>
+        <p class="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">From sizzling tandoors to aromatic curries, we serve love on a plate. Join us for a journey of flavors.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#menu" class="bg-orange-600 text-white px-10 py-4 rounded-full text-sm font-black uppercase tracking-widest shadow-2xl shadow-orange-900/40 transition-all hover:scale-105">Explore Menu</a>
+            <a href="#contact" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-full text-sm font-black uppercase tracking-widest transition-all hover:bg-white/20">Book a Table</a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="py-12 bg-white border-y border-orange-50">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+        <div><h4 class="text-4xl font-black text-orange-600">500+</h4><p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2">Dishes Served</p></div>
+        <div><h4 class="text-4xl font-black text-orange-600">8+</h4><p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2">Years of Legacy</p></div>
+        <div><h4 class="text-4xl font-black text-orange-600">4.8★</h4><p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2">Google Rating</p></div>
+        <div><h4 class="text-4xl font-black text-orange-600">100%</h4><p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2">Fresh Ingredients</p></div>
+    </div>
+</section>
+
+<!-- Menu Highlights -->
+<section id="menu" class="py-24 px-6 bg-[#fffcf7]">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-20 reveal">
+            <h3 class="text-5xl font-bold text-gray-900 mb-4 italic">Our <span class="text-orange-600">Best Sellers</span></h3>
+            <p class="text-gray-400 uppercase tracking-widest text-[10px] font-black">Handpicked favorites from our kitchen.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12">
+            <!-- Item 1 -->
+            <div class="group reveal">
+                <div class="overflow-hidden rounded-3xl mb-6 aspect-square shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Butter Chicken">
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="text-xl font-bold">Butter Chicken Deluxe</h4>
+                    <span class="text-orange-600 font-black">₹349</span>
+                </div>
+                <p class="text-gray-500 text-sm italic leading-relaxed">Creamy, rich tomato gravy with tender tandoori chicken pieces.</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="group reveal">
+                <div class="overflow-hidden rounded-3xl mb-6 aspect-square shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2072&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Paneer Tikka">
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="text-xl font-bold">Paneer Tikka Platter</h4>
+                    <span class="text-orange-600 font-black">₹279</span>
+                </div>
+                <p class="text-gray-500 text-sm italic leading-relaxed">Marinated cottage cheese cubes grilled to golden perfection.</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="group reveal">
+                <div class="overflow-hidden rounded-3xl mb-6 aspect-square shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Biryani">
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="text-xl font-bold">Dum Hyderabadi Biryani</h4>
+                    <span class="text-orange-600 font-black">₹299</span>
+                </div>
+                <p class="text-gray-500 text-sm italic leading-relaxed">Fragrant long-grain basmati rice layered with aromatic spices.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Today's Special -->
+<section id="special" class="py-24 px-6 bg-orange-600 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+            <span class="bg-white/20 text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 inline-block">Limited Time Offer</span>
+            <h3 class="text-5xl md:text-7xl font-bold mb-8 italic">Chef's <br>Signature <span class="text-orange-200">Kabab</span></h3>
+            <p class="text-orange-100 text-lg md:text-xl mb-10 leading-relaxed italic">"Our Galouti Kababs are so soft, they melt in your mouth before you even chew. Served with our secret mint chutney."</p>
+            <div class="flex items-center gap-6">
+                <span class="text-4xl font-black">₹399</span>
+                <a href="javascript:void(0)" onclick="alert('DEMO: This button will be linked to your WhatsApp or Online Menu in the final website.')" class="bg-white text-orange-600 px-8 py-3 rounded-full font-black uppercase tracking-widest shadow-xl hover:scale-105 transition-all">Order Now</a>
+            </div>
+        </div>
+        <div class="relative reveal">
+            <div class="absolute -inset-4 border-2 border-white/20 rounded-3xl rotate-3"></div>
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=1900&auto=format&fit=crop" class="relative rounded-3xl shadow-2xl object-cover h-[400px] w-full" alt="Special Dish">
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto text-center">
+        <div class="reveal">
+            <h3 class="text-4xl font-bold text-gray-900 mb-4 italic">What <span class="text-orange-600">Foodies</span> Say</h3>
+            <p class="text-gray-400 uppercase tracking-widest text-[10px] font-black mb-16">Stories of flavor and delight.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="bg-[#fffcf7] p-10 rounded-[2rem] border border-orange-50 text-left reveal italic">
+                <p class="text-gray-600 mb-8 leading-relaxed font-medium">"The best Butter Chicken I've had in years! The ambience is warm and the service is exceptionally fast. A must-visit for every North Indian food lover."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-black">RK</div>
+                    <div><h5 class="font-bold text-gray-900 uppercase text-sm">Rahul Kapoor</h5><p class="text-xs text-gray-400 uppercase tracking-widest">Google Local Guide</p></div>
+                </div>
+            </div>
+            <div class="bg-[#fffcf7] p-10 rounded-[2rem] border border-orange-50 text-left reveal italic">
+                <p class="text-gray-600 mb-8 leading-relaxed font-medium">"Ordering via WhatsApp is so convenient. The food arrives hot and the packaging is premium. Their Biryani is literally town-famous for a reason!"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-black">SM</div>
+                    <div><h5 class="font-bold text-gray-900 uppercase text-sm">Sneha Malhotra</h5><p class="text-xs text-gray-400 uppercase tracking-widest">Food Blogger</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact & Table Booking -->
+<section id="contact" class="py-24 px-6 bg-[#fffcf7]">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+        <!-- Reservation Form -->
+        <div class="bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl reveal border border-orange-50">
+            <h3 class="text-4xl font-bold text-gray-900 mb-8 italic">Book a <span class="text-orange-600">Table</span></h3>
+            <form onsubmit="event.preventDefault(); alert('Table Reserved! We will confirm your booking via SMS.'); this.reset();" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Full Name" required class="w-full p-5 rounded-2xl bg-gray-50 border border-gray-100 focus:border-orange-600 outline-none transition-all font-medium">
+                    <input type="tel" placeholder="Phone Number" required class="w-full p-5 rounded-2xl bg-gray-50 border border-gray-100 focus:border-orange-600 outline-none transition-all font-medium">
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <input type="date" required class="w-full p-5 rounded-2xl bg-gray-50 border border-gray-100 focus:border-orange-600 outline-none transition-all font-medium text-gray-500">
+                    <input type="time" required class="w-full p-5 rounded-2xl bg-gray-50 border border-gray-100 focus:border-orange-600 outline-none transition-all font-medium text-gray-500">
+                    <select class="w-full p-5 rounded-2xl bg-gray-50 border border-gray-100 focus:border-orange-600 outline-none transition-all font-medium text-gray-500">
+                        <option>2 Guests</option>
+                        <option>4 Guests</option>
+                        <option>6+ Guests</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-orange-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl shadow-orange-200 hover:scale-[1.02] active:scale-95 transition-all">Confirm Reservation</button>
+            </form>
+        </div>
+
+        <!-- Info & Map -->
+        <div class="reveal flex flex-col justify-center">
+            <h3 class="text-4xl font-bold text-gray-900 mb-8 italic">Visit <span class="text-orange-600">The Route</span></h3>
+            <div class="rounded-[2rem] overflow-hidden grayscale border border-gray-100 h-64 shadow-xl mb-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9!2d77.21!3d28.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzQ4LjAiTiA3N8KwMTInMzYuMCJF!5e0!3m2!1sen!2sin!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 flex-shrink-0 text-2xl">📍</div>
+                    <div><h5 class="font-black uppercase tracking-widest text-xs mb-1">Our Location</h5><p class="text-gray-500 text-sm font-medium">Food Street, Block C, Connaught Place, New Delhi 110001</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 flex-shrink-0 text-2xl">📞</div>
+                    <div><h5 class="font-black uppercase tracking-widest text-xs mb-1">Contact Us</h5><p class="text-gray-500 text-sm font-medium">+91 98765 43210<br>+91 11 2345 6789</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-950 text-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 text-left mb-16">
+            <div class="col-span-1 md:col-span-1">
+                <h2 class="text-2xl font-bold text-orange-600 mb-6">The Spice Route</h2>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium">Authentic Indian flavors served with a modern touch. Your favorite destination for family dinners and celebrations.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-black uppercase tracking-widest text-xs mb-6">Quick Links</h4>
+                <ul class="text-gray-500 space-y-4 text-sm font-medium">
+                    <li><a href="#" class="hover:text-orange-600 transition-colors">Home</a></li>
+                    <li><a href="#menu" class="hover:text-orange-600 transition-colors">Digital Menu</a></li>
+                    <li><a href="#special" class="hover:text-orange-600 transition-colors">Today's Special</a></li>
+                    <li><a href="#contact" class="hover:text-orange-600 transition-colors">Book a Table</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-black uppercase tracking-widest text-xs mb-6">Operating Hours</h4>
+                <ul class="text-gray-500 space-y-4 text-sm font-medium">
+                    <li class="flex justify-between"><span>Mon - Thu:</span> <span>11 AM - 11 PM</span></li>
+                    <li class="flex justify-between"><span>Fri - Sun:</span> <span>11 AM - 12 AM</span></li>
+                    <li class="text-orange-600 italic">Open on Public Holidays</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-black uppercase tracking-widest text-xs mb-6">Newsletter</h4>
+                <p class="text-gray-500 text-[10px] uppercase font-black tracking-widest mb-4">Get 10% off your first order!</p>
+                <form onsubmit="event.preventDefault(); alert('Subscribed! Check your email for 10% off'); this.reset();" class="relative">
+                    <input type="email" placeholder="Email Address" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-xs outline-none focus:border-orange-600">
+                    <button class="absolute right-2 top-2 bg-orange-600 p-2 rounded-lg"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></button>
+                </form>
+            </div>
+        </div>
+        <div class="pt-8 border-t border-gray-900 text-center">
+            <div class="text-gray-500 mb-4 text-[10px] font-black uppercase tracking-[0.3em]">
+                Designed & Secured by <span class="text-orange-600">@secure_with_rajat</span>
+            </div>
+            <p class="text-gray-600 text-[9px] uppercase tracking-widest italic">© 2026 The Spice Route. All Rights Reserved. Pure Taste, Pure Tradition.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    const toggleMenu = (isOpen) => {
+        mobileMenu.classList.toggle('hidden', !isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    };
+
+    menuBtn.addEventListener('click', () => toggleMenu(true));
+    closeMenu.addEventListener('click', () => toggleMenu(false));
+    menuLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(reveal => observer.observe(reveal));
+</script>
+
+</body>
+</html>

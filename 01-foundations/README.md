@@ -1,16 +1,31 @@
+# 🏗 Foundations & Core Layout Systems
 
+This section is the "Engine Room" of every professional website. We focus on building **indestructible, mobile-first** layouts that provide a seamless experience across all devices.
 
+---
 
+## 📂 Practice Labs
 
-# Foundations
+### 1️⃣ [CSS Layout Practice](./css-layout-practice/)
+Mastering the two pillars of modern CSS layouts.
+- **[Flexbox Holy Grail](./css-layout-practice/flexbox-holy-grail.html):** A classic 3-column layout that shifts to a vertical stack on mobile.
+- **[Grid Gallery](./css-layout-practice/grid-gallery.html):** Using `auto-fit` and `minmax` for a self-adjusting image/service gallery.
+- **[Centered Hero](./css-layout-practice/hero-center-flex.html):** Perfecting the art of centering content vertically and horizontally using Flexbox.
 
-This section contains core frontend practice focused on layout systems and responsive design.
+### 2️⃣ [Responsive Design](./responsive-design/)
+Scaling from 300px to 4K screens without breaking the UI.
+- **[Responsive Navbar](./responsive-design/responsive-navbar.html):** A navigation bar that adapts for mobile users.
+- **[Card Stacking](./responsive-design/responsive-cards.html):** Learning how to manage column counts (1, 2, or 3) using media queries and Flexbox.
 
-## Topics Covered
+---
 
-- HTML semantic structure
-- CSS Flexbox
-- CSS Grid
-- Responsive design (mobile-first)
+## 🛠 Skills Checklist
+- [x] **Mobile-First Thinking:** Always start with the mobile view.
+- [x] **Flexbox Mastery:** `justify-content`, `align-items`, and `flex-grow`.
+- [x] **Grid Proficiency:** `repeat()`, `gap`, and fractional units (`fr`).
+- [x] **Media Query Breakpoints:** Logical points where the layout needs to change.
 
-Goal: Build strong layout fundamentals before moving to interactive logic.
+---
+
+## 🎯 Strategic Goal
+The objective is to master **rock-solid layout systems** that are impossible to break, ensuring your freelance clients get a professional product that works on every phone, tablet, and laptop.

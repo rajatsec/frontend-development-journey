@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Gallery - Foundations</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f0f0f0; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card h3 { margin-bottom: 10px; color: #333; }
+        .card p { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center; margin-bottom:30px;">Responsive Grid Gallery</h2>
+    <div class="gallery">
+        <div class="card"><h3>Service 1</h3><p>High-quality professional service for your business needs.</p></div>
+        <div class="card"><h3>Service 2</h3><p>Custom solutions tailored to your specific requirements.</p></div>
+        <div class="card"><h3>Service 3</h3><p>Expert consulting to help you scale and grow faster.</p></div>
+        <div class="card"><h3>Service 4</h3><p>Reliable support and maintenance for all systems.</p></div>
+    </div>
+</body>
+</html>

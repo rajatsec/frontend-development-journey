@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator - Mini Projects</title>
+    <style>
+        body { font-family: 'Playfair Display', serif; background: #1a1a1a; color: white; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; padding: 20px; text-align: center; }
+        .card { max-width: 600px; padding: 40px; border: 1px solid #333; border-radius: 15px; background: #222; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .quote { font-size: 1.5rem; margin-bottom: 20px; line-height: 1.4; }
+        .author { font-size: 1rem; color: #888; text-transform: uppercase; letter-spacing: 2px; }
+        button { background: white; color: black; border: none; padding: 12px 30px; margin-top: 30px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s; }
+        button:hover { background: #ff4d4d; color: white; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <p class="quote" id="quote">"Press the button to get inspired."</p>
+        <p class="author" id="author">Unknown</p>
+        <button id="quoteBtn">New Quote</button>
+    </div>
+
+    <script>
+        const quotes = [
+            { text: "Your time is limited, so don't waste it living someone else's life.", author: "Steve Jobs" },
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "Hardships often prepare ordinary people for an extraordinary destiny.", author: "C.S. Lewis" },
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Security is not a product, but a process.", author: "Bruce Schneier" }
+        ];
+
+        const quoteBtn = document.getElementById('quoteBtn');
+        const quoteText = document.getElementById('quote');
+        const authorText = document.getElementById('author');
+
+        quoteBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+            quoteText.textContent = `"${randomQuote.text}"`;
+            authorText.textContent = randomQuote.author;
+        });
+    </script>
+</body>
+</html>

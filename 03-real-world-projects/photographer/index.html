@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture Studio | Professional Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Playfair+Display:italic,wght@400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; overflow-x: hidden; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1493863641943-9b68992a8d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .gallery-item { overflow: hidden; position: relative; }
+        .gallery-item img { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        .gallery-overlay {
+            background: rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        #mobile-menu { transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0); }
+        
+        .stat-card { border-right: 1px solid rgba(255,255,255,0.1); }
+        .stat-card:last-child { border-right: none; }
+
+        #whatsapp-container { 
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+        }
+        .hide-btn { opacity: 0; visibility: hidden; transform: translateY(20px); }
+        
+        #tooltip { 
+            opacity: 0; 
+            transform: translateX(10px); 
+            transition: all 0.3s ease; 
+            pointer-events: none;
+        }
+        #whatsapp-container:not(.hide-btn):hover #tooltip { opacity: 1; transform: translateX(0); }
+    </style>
+</head>
+<body class="bg-black text-white selection:bg-white selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-white/5">
+        <div class="container mx-auto px-6 py-6 flex justify-between items-center">
+            <div class="text-xl font-light tracking-[0.3em] uppercase">
+                Capture<span class="font-bold">Studio</span>
+            </div>
+            <div class="hidden md:flex space-x-12 text-[10px] tracking-[0.4em] uppercase font-semibold">
+                <a href="#portfolio" class="hover:text-gray-400 transition">Portfolio</a>
+                <a href="#about" class="hover:text-gray-400 transition">Our Story</a>
+                <a href="#pricing" class="hover:text-gray-400 transition">Investment</a>
+                <a href="#contact" class="hover:text-gray-400 transition border-b border-white pb-1">Enquire</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black text-white z-[60] transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-10 text-xl font-light tracking-widest uppercase">
+            <button id="close-btn" class="absolute top-8 right-8 text-3xl"><i class="fas fa-times"></i></button>
+            <a href="#portfolio" class="mobile-link">Portfolio</a>
+            <a href="#about" class="mobile-link">Our Story</a>
+            <a href="#pricing" class="mobile-link">Investment</a>
+            <a href="#contact" class="mobile-link border-b border-white pb-2">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="h-screen hero-bg flex items-center justify-center text-center px-6">
+        <div class="max-w-4xl reveal">
+            <h1 class="text-6xl md:text-8xl font-light mb-8 tracking-tighter leading-tight">Every Frame Tells a <span class="font-serif italic font-bold">Story</span>.</h1>
+            <p class="text-lg md:text-xl font-light text-gray-400 mb-12 tracking-[0.2em] uppercase">High-End Wedding & Fashion Photography</p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <a href="#portfolio" class="bg-white text-black px-12 py-5 text-[10px] tracking-[0.4em] uppercase font-bold hover:bg-gray-200 transition">The Portfolio</a>
+                <a href="#contact" class="border border-white px-12 py-5 text-[10px] tracking-[0.4em] uppercase font-bold hover:bg-white hover:text-black transition">Book a Shoot</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="py-16 bg-zinc-950 border-y border-white/5">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center reveal">
+            <div class="stat-card px-4">
+                <div class="text-4xl font-light mb-2">250+</div>
+                <div class="text-[9px] tracking-[0.3em] uppercase text-gray-500">Weddings Shot</div>
+            </div>
+            <div class="stat-card px-4">
+                <div class="text-4xl font-light mb-2">15</div>
+                <div class="text-[9px] tracking-[0.3em] uppercase text-gray-500">Industry Awards</div>
+            </div>
+            <div class="stat-card px-4">
+                <div class="text-4xl font-light mb-2">12k</div>
+                <div class="text-[9px] tracking-[0.3em] uppercase text-gray-500">Happy Clients</div>
+            </div>
+            <div class="stat-card px-4">
+                <div class="text-4xl font-light mb-2">8</div>
+                <div class="text-[9px] tracking-[0.3em] uppercase text-gray-500">Global Locations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 bg-black">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-20">
+            <div class="md:w-1/2 reveal">
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Photographer" class="rounded-sm filter grayscale hover:grayscale-0 transition duration-700">
+                    <div class="absolute -bottom-10 -right-10 w-64 h-64 border border-white/10 -z-10 hidden md:block"></div>
+                </div>
+            </div>
+            <div class="md:w-1/2 reveal">
+                <h2 class="text-10px tracking-[0.5em] uppercase text-gray-500 mb-6">The Artist</h2>
+                <h3 class="text-5xl font-light mb-10 leading-snug">Obsessed with <span class="font-serif italic font-bold">Light</span> & Emotion.</h3>
+                <p class="text-gray-400 leading-relaxed mb-8 text-lg font-light">I started Capture Studio with a simple vision: to preserve the moments that words cannot describe. My style is minimalist, candid, and deeply cinematic.</p>
+                <p class="text-gray-400 leading-relaxed mb-12 text-lg font-light">Whether it's the quiet anticipation before a wedding or the bold energy of a fashion shoot, I bring a unique artistic perspective to every project.</p>
+                <a href="#contact" class="text-[10px] tracking-[0.4em] uppercase border-b border-white pb-3 hover:text-gray-400 transition">My Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section id="portfolio" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl font-light tracking-[0.2em] uppercase mb-6">The Gallery</h2>
+                <div class="w-12 h-[1px] bg-white mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="gallery-item aspect-[4/5] reveal">
+                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Portrait" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-[10px] tracking-[0.5em] uppercase font-bold">The Muse</span>
+                    </div>
+                </div>
+                <div class="gallery-item aspect-[4/5] reveal">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Wedding" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-[10px] tracking-[0.5em] uppercase font-bold">The Promise</span>
+                    </div>
+                </div>
+                <div class="gallery-item aspect-[4/5] reveal">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Commercial" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex items-center justify-center">
+                        <span class="text-[10px] tracking-[0.5em] uppercase font-bold">The Craft</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-32 bg-black overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-10px tracking-[0.5em] uppercase text-gray-500 mb-6">Words from Clients</h2>
+                <h3 class="text-4xl font-light uppercase tracking-widest">Global Reviews</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="border-l border-white/10 pl-12 reveal">
+                    <div class="flex text-yellow-600 mb-8 text-xs space-x-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-2xl font-serif italic mb-10 leading-relaxed text-gray-300">"They didn't just take photos; they captured emotions we didn't even know we were showing."</p>
+                    <div class="text-[10px] tracking-[0.3em] uppercase font-bold text-white">Eleanor Rigby</div>
+                    <div class="text-[9px] tracking-[0.2em] uppercase text-gray-600 mt-2">Vogue Fashion Shoot</div>
+                </div>
+                <div class="border-l border-white/10 pl-12 reveal">
+                    <div class="flex text-yellow-600 mb-8 text-xs space-x-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-2xl font-serif italic mb-10 leading-relaxed text-gray-300">"The wedding album is like a movie. Every time we look at it, we relive the day."</p>
+                    <div class="text-[10px] tracking-[0.3em] uppercase font-bold text-white">James & Sarah</div>
+                    <div class="text-[9px] tracking-[0.2em] uppercase text-gray-600 mt-2">Destination Wedding</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-32 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-10px tracking-[0.5em] uppercase text-gray-500 mb-6">Investment</h2>
+                <h3 class="text-4xl font-light uppercase tracking-widest">The Collections</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="p-16 border border-white/10 hover:border-white transition reveal text-center">
+                    <h4 class="text-[10px] tracking-[0.4em] uppercase mb-10 text-gray-500">The Editorial</h4>
+                    <div class="text-5xl font-light mb-12">₹15k<span class="text-xs opacity-50">/hr</span></div>
+                    <ul class="text-[10px] tracking-[0.2em] uppercase text-gray-400 space-y-6 mb-16">
+                        <li>Studio Session</li>
+                        <li>12 Premium Edits</li>
+                        <li>Style Consult</li>
+                    </ul>
+                    <a href="#contact" class="text-[9px] tracking-[0.4em] uppercase border-b border-white pb-3">Enquire</a>
+                </div>
+                <div class="p-16 border border-white bg-white text-black reveal text-center">
+                    <h4 class="text-[10px] tracking-[0.4em] uppercase mb-10 font-bold">The Heritage</h4>
+                    <div class="text-5xl font-bold mb-12">₹95k<span class="text-xs opacity-50">+</span></div>
+                    <ul class="text-[10px] tracking-[0.2em] uppercase font-bold space-y-6 mb-16">
+                        <li>Full Day Wedding</li>
+                        <li>Handcrafted Album</li>
+                        <li>2 Photographers</li>
+                    </ul>
+                    <a href="#contact" class="text-[9px] tracking-[0.4em] uppercase border-b border-black pb-3">Reserve</a>
+                </div>
+                <div class="p-16 border border-white/10 hover:border-white transition reveal text-center">
+                    <h4 class="text-[10px] tracking-[0.4em] uppercase mb-10 text-gray-500">The Global</h4>
+                    <div class="text-5xl font-light mb-12">Custom</div>
+                    <ul class="text-[10px] tracking-[0.2em] uppercase text-gray-400 space-y-6 mb-16">
+                        <li>Destination Shoots</li>
+                        <li>Full Travel Rights</li>
+                        <li>RAW File Access</li>
+                    </ul>
+                    <a href="#contact" class="text-[9px] tracking-[0.4em] uppercase border-b border-white pb-3">Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 bg-black">
+        <div class="container mx-auto px-6 max-w-2xl">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-10px tracking-[0.5em] uppercase text-gray-500 mb-6">Booking</h2>
+                <h3 class="text-5xl font-light uppercase tracking-tighter">Start Your <span class="font-serif italic font-bold">Journey</span></h3>
+            </div>
+            <form id="contact-form" class="space-y-12 reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <input type="text" required placeholder="NAME" class="bg-transparent border-b border-white/20 py-5 w-full outline-none focus:border-white transition text-[10px] tracking-[0.4em] uppercase">
+                    <input type="email" required placeholder="EMAIL" class="bg-transparent border-b border-white/20 py-5 w-full outline-none focus:border-white transition text-[10px] tracking-[0.4em] uppercase">
+                </div>
+                <select class="bg-transparent border-b border-white/20 py-5 w-full outline-none focus:border-white transition text-[10px] tracking-[0.4em] uppercase text-gray-500 appearance-none">
+                    <option class="bg-black">SELECT SERVICE</option>
+                    <option class="bg-black">WEDDING</option>
+                    <option class="bg-black">FASHION</option>
+                    <option class="bg-black">COMMERCIAL</option>
+                </select>
+                <textarea rows="4" placeholder="TELL ME YOUR VISION" class="bg-transparent border-b border-white/20 py-5 w-full outline-none focus:border-white transition text-[10px] tracking-[0.4em] uppercase"></textarea>
+                <button type="submit" class="w-full bg-white text-black font-bold py-6 text-[10px] tracking-[0.5em] uppercase hover:bg-gray-200 transition shadow-xl">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <div id="whatsapp-container" class="fixed bottom-10 left-10 z-50 flex items-center group">
+        <a id="whatsapp-btn" href="#" class="bg-white text-black w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div id="tooltip" class="ml-4 bg-white text-black px-6 py-2 rounded-sm text-[10px] tracking-[0.3em] uppercase font-bold shadow-xl">
+            Artistic Enquiry
+        </div>
+    </div>
+
+    <!-- Footer (Upgraded Premium Version) -->
+    <footer id="main-footer" class="bg-zinc-950 text-gray-400 py-32 border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="text-xl font-light tracking-[0.3em] uppercase text-white mb-8">
+                        Capture<span class="font-bold">Studio</span>
+                    </div>
+                    <p class="text-xs leading-relaxed tracking-widest font-light uppercase text-gray-500">Preserving cinematic moments and high-end fashion narratives since 2011.</p>
+                </div>
+                <div>
+                    <h4 class="text-white text-[10px] tracking-[0.4em] uppercase mb-8 font-bold">Studio</h4>
+                    <ul class="space-y-4 text-[10px] tracking-[0.2em] uppercase font-light">
+                        <li><a href="#portfolio" class="hover:text-white transition">The Gallery</a></li>
+                        <li><a href="#about" class="hover:text-white transition">Our Story</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Collections</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Enquire</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-[10px] tracking-[0.4em] uppercase mb-8 font-bold">Services</h4>
+                    <ul class="space-y-4 text-[10px] tracking-[0.2em] uppercase font-light">
+                        <li>Destination Wedding</li>
+                        <li>Editorial Fashion</li>
+                        <li>Fine Art Portrait</li>
+                        <li>Commercial Rights</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-[10px] tracking-[0.4em] uppercase mb-8 font-bold">Connect</h4>
+                    <p class="mb-6 text-[9px] tracking-[0.2em] uppercase text-gray-600">Subscribe for artistic updates.</p>
+                    <form id="newsletter-form" class="flex border-b border-white/20 pb-2">
+                        <input type="email" required placeholder="YOUR EMAIL" class="bg-transparent border-none w-full text-[10px] tracking-[0.4em] outline-none placeholder:text-gray-700">
+                        <button type="submit" class="text-white hover:scale-110 transition"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center">
+                <div class="flex flex-col items-center md:items-start space-y-4">
+                    <p class="text-[9px] tracking-[0.4em] uppercase">&copy; 2026 Capture Studio. All Rights Reserved.</p>
+                    <p class="text-[9px] tracking-[0.3em] uppercase font-bold text-gray-500">
+                        Crafted by <a href="https://instagram.com/secure_with_rajat" target="_blank" class="text-white hover:text-blue-500 transition">@secure_with_rajat</a> Portfolio
+                    </p>
+                </div>
+                <div class="flex space-x-12 mt-10 md:mt-0 text-2xl">
+                    <a href="#" class="footer-social-link hover:text-white transition transform hover:scale-125"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link hover:text-white transition transform hover:scale-125"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link hover:text-white transition transform hover:scale-125"><i class="fab fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        const toggleMenu = () => mobileMenu.classList.toggle('translate-x-full');
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Form Handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your artistic inquiry has been received. I will contact you shortly.');
+            this.reset();
+        });
+
+        // Newsletter Handler
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Welcome to the inner circle. You are now subscribed for artistic updates.');
+            this.reset();
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const whatsappContainer = document.getElementById('whatsapp-container');
+        const footer = document.getElementById('main-footer');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+
+            const footerTop = footer.getBoundingClientRect().top;
+            if (footerTop < window.innerHeight) {
+                whatsappContainer.classList.add('hide-btn');
+            } else {
+                whatsappContainer.classList.remove('hide-btn');
+            }
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        document.getElementById('whatsapp-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Demo: Redirecting to WhatsApp Business Chat!');
+        });
+
+        // Footer Social Demo Handler
+        document.querySelectorAll('.footer-social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    alert('Demo: Social Media Profile link clicked!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

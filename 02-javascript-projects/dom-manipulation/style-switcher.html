@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Style Switcher - DOM Manipulation</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; transition: background 0.5s, color 0.5s; }
+        .card { padding: 40px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; text-align: center; backdrop-filter: blur(10px); }
+        .controls { margin-top: 20px; display: flex; gap: 10px; justify-content: center; }
+        .color-btn { width: 30px; height: 30px; border-radius: 50%; border: 2px solid white; cursor: pointer; }
+        h1 { margin: 0; font-size: 3rem; }
+    </style>
+</head>
+<body style="background-color: #1a1a1a; color: white;">
+    <div class="card">
+        <h1 id="mainTitle">Style Switcher</h1>
+        <p>Change the theme instantly with JavaScript</p>
+        <div class="controls">
+            <div class="color-btn" style="background: #1a1a1a;" data-bg="#1a1a1a" data-text="white"></div>
+            <div class="color-btn" style="background: #ffffff;" data-bg="#ffffff" data-text="#1a1a1a"></div>
+            <div class="color-btn" style="background: #ff4d4d;" data-bg="#ff4d4d" data-text="white"></div>
+            <div class="color-btn" style="background: #4d94ff;" data-bg="#4d94ff" data-text="white"></div>
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.color-btn');
+        const body = document.body;
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const bgColor = btn.getAttribute('data-bg');
+                const textColor = btn.getAttribute('data-text');
+                body.style.backgroundColor = bgColor;
+                body.style.color = textColor;
+            });
+        });
+    </script>
+</body>
+</html>

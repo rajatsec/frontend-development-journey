@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <title>HealthCare Pharmacy | Your Trusted Chemist | Secured by @secure_with_rajat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .blue-gradient { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden">
+
+<!-- Top Bar -->
+<div class="bg-blue-600 text-white py-2 px-6 text-[10px] font-bold uppercase tracking-[0.2em] flex justify-between items-center">
+    <span><span class="animate-pulse mr-2">●</span> 24/7 Home Delivery Available</span>
+    <span class="hidden sm:inline italic">Call for Emergency: +91 98765 43210</span>
+</div>
+
+<!-- Navbar -->
+<nav class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-xl">+</div>
+            <h1 class="text-xl font-black tracking-tighter text-gray-900 uppercase">HealthCare <span class="text-blue-600">Pharmacy</span></h1>
+        </div>
+        
+        <ul class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-gray-500">
+            <li><a href="#" class="hover:text-blue-600 transition-colors">Home</a></li>
+            <li><a href="#categories" class="hover:text-blue-600 transition-colors">Categories</a></li>
+            <li><a href="#services" class="hover:text-blue-600 transition-colors">Services</a></li>
+            <li><a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+            <button onclick="alert('Demo: This would open WhatsApp to place your order!')" class="bg-[#25D366] text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg shadow-green-200 transition-all hover:scale-105 active:scale-95">WhatsApp Order</button>
+            <button id="menu-btn" class="md:hidden text-gray-900 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-[100] flex flex-col items-center justify-center space-y-8 text-2xl font-black uppercase tracking-widest">
+        <button id="close-menu" class="absolute top-6 right-6 text-gray-900">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="#" class="hover:text-blue-600 transition-colors menu-link">Home</a>
+        <a href="#categories" class="hover:text-blue-600 transition-colors menu-link">Categories</a>
+        <a href="#services" class="hover:text-blue-600 transition-colors menu-link">Services</a>
+        <a href="#contact" class="hover:text-blue-600 transition-colors menu-link">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="py-16 px-6 bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+            <span class="text-blue-600 font-black tracking-[0.3em] uppercase text-[10px] mb-4 block">Government Licensed Pharmacy</span>
+            <h2 class="text-5xl md:text-7xl font-black text-gray-900 leading-tight mb-8">Your Health, <br><span class="text-blue-600">Our Priority.</span></h2>
+            <p class="text-gray-600 text-lg md:text-xl max-w-lg mb-10 leading-relaxed font-medium">Get 100% genuine medicines delivered to your doorstep within 60 minutes. Trusted by 5000+ families.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#prescription" class="bg-blue-600 text-white px-10 py-5 rounded-2xl text-sm font-black uppercase tracking-widest shadow-2xl shadow-blue-200 transition-all hover:scale-105">Upload Prescription</a>
+                <a href="#categories" class="border-2 border-gray-200 text-gray-600 px-10 py-5 rounded-2xl text-sm font-black uppercase tracking-widest transition-all hover:border-blue-600 hover:text-blue-600">Browse Store</a>
+            </div>
+            <div class="mt-8 flex items-center gap-6 text-gray-400 text-[10px] font-black uppercase tracking-widest">
+                <span class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> 100% Genuine</span>
+                <span class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg> Expert Pharmacist</span>
+            </div>
+        </div>
+        <div class="relative reveal">
+            <div class="absolute inset-0 bg-blue-600 rounded-[3rem] rotate-3 scale-95 opacity-10"></div>
+            <img src="https://images.unsplash.com/photo-1586015555751-63bb77f4322a?q=80&w=1974&auto=format&fit=crop" class="relative rounded-[3rem] shadow-2xl border-4 border-white object-cover h-[500px] w-full" alt="Pharmacy">
+        </div>
+    </div>
+</section>
+
+<!-- Categories Grid -->
+<section id="categories" class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto text-center">
+        <div class="reveal">
+            <h3 class="text-4xl font-black text-gray-900 mb-4 uppercase">Shop by <span class="text-blue-600">Category</span></h3>
+            <p class="text-gray-500 mb-16 max-w-lg mx-auto font-medium">Everything you need for your family's wellness.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Cat 1 -->
+            <div class="group bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:border-blue-600 transition-all cursor-pointer reveal">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 mx-auto group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-12 12m6-12V3m6 3.172l3.536-3.536M21 12h-3m-3.172 5.657l3.536 3.536M12 21v-3m-5.657-3.172l-3.536 3.536M3 12h3m3.172-5.657L5.636 2.828"></path></svg>
+                </div>
+                <h4 class="font-black text-sm uppercase tracking-tighter">Medicines</h4>
+            </div>
+            <!-- Cat 2 -->
+            <div class="group bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:border-blue-600 transition-all cursor-pointer reveal">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 mx-auto group-hover:bg-blue-600 group-hover:text-white transition-colors text-xl font-black">🍼</div>
+                <h4 class="font-black text-sm uppercase tracking-tighter">Baby Care</h4>
+            </div>
+            <!-- Cat 3 -->
+            <div class="group bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:border-blue-600 transition-all cursor-pointer reveal">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 mx-auto group-hover:bg-blue-600 group-hover:text-white transition-colors text-xl font-black">🧖</div>
+                <h4 class="font-black text-sm uppercase tracking-tighter">Wellness</h4>
+            </div>
+            <!-- Cat 4 -->
+            <div class="group bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:border-blue-600 transition-all cursor-pointer reveal">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 mx-auto group-hover:bg-blue-600 group-hover:text-white transition-colors text-xl font-black">🔋</div>
+                <h4 class="font-black text-sm uppercase tracking-tighter">Health Devices</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+            <h3 class="text-4xl font-black text-gray-900 mb-4 uppercase">Our Premium <span class="text-blue-600">Services</span></h3>
+            <p class="text-gray-500 max-w-lg mx-auto font-medium">Going beyond just selling medicines to care for your family.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white p-10 rounded-3xl shadow-sm reveal">
+                <div class="text-4xl mb-6">🚚</div>
+                <h4 class="text-lg font-black mb-4 uppercase">Home Delivery</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium">Fast and secure delivery within 60 minutes in local areas.</p>
+            </div>
+            <div class="bg-white p-10 rounded-3xl shadow-sm reveal">
+                <div class="text-4xl mb-6">🔬</div>
+                <h4 class="text-lg font-black mb-4 uppercase">Generic Medicine</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium">Affordable alternatives that are 100% effective and safe.</p>
+            </div>
+            <div class="bg-white p-10 rounded-3xl shadow-sm reveal">
+                <div class="text-4xl mb-6">🩺</div>
+                <h4 class="text-lg font-black mb-4 uppercase">Health Consult</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium">Expert pharmacist advice for your OTC and wellness needs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Prescription Upload -->
+<section id="prescription" class="py-24 px-6 bg-blue-600">
+    <div class="max-w-5xl mx-auto bg-white rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row gap-12 items-center reveal shadow-2xl">
+        <div class="flex-1">
+            <h3 class="text-4xl font-black text-gray-900 mb-6 leading-tight uppercase">Quick Order <br><span class="text-blue-600">via Prescription</span></h3>
+            <p class="text-gray-500 mb-8 font-medium">Don't have time to search? Just upload your doctor's prescription and we'll handle the rest.</p>
+            <ul class="space-y-4 mb-10 text-sm font-bold text-gray-600">
+                <li class="flex items-center gap-3"><span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">1</span> Take a clear photo</li>
+                <li class="flex items-center gap-3"><span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">2</span> Upload via WhatsApp or Form</li>
+                <li class="flex items-center gap-3"><span class="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">3</span> Get medicines at home</li>
+            </ul>
+        </div>
+        <div class="flex-1 w-full">
+            <div class="border-4 border-dashed border-blue-100 rounded-3xl p-8 text-center bg-blue-50/30">
+                <div class="text-5xl mb-6">📄</div>
+                <button onclick="alert('Demo: This would open the camera or file picker!')" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl shadow-blue-200 hover:scale-105 transition-all">Select Image</button>
+                <p class="mt-4 text-gray-400 text-xs font-bold uppercase tracking-widest">Supports JPG, PNG, PDF</p>
+            </div>
+            <div class="mt-6 text-center">
+                <span class="text-gray-400 text-[10px] font-black uppercase tracking-widest">OR</span>
+                <button onclick="alert('Demo: Opening WhatsApp Chat...')" class="block mt-4 w-full text-[#25D366] font-black uppercase tracking-widest text-sm underline underline-offset-8">Order via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Patient Testimonials -->
+<section class="py-24 px-6 bg-white">
+    <div class="max-w-7xl mx-auto text-center">
+        <div class="reveal">
+            <h3 class="text-4xl font-black text-gray-900 mb-4 uppercase leading-tight">Trusted by <span class="text-blue-600">Families</span></h3>
+            <p class="text-gray-500 mb-16 max-w-lg mx-auto font-medium">Hear from our regular customers about our service quality.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 text-left reveal italic">
+                <p class="text-gray-600 mb-8 leading-relaxed font-medium">"Extremely reliable! During emergencies, they delivered life-saving medicines within 30 minutes. The pharmacist is also very knowledgeable."</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-black">AV</div>
+                    <div><h5 class="font-bold text-gray-900 uppercase text-sm">Arun Verma</h5><p class="text-xs text-gray-400 uppercase tracking-widest">Customer for 2 Years</p></div>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-10 rounded-3xl border border-gray-100 text-left reveal italic">
+                <p class="text-gray-600 mb-8 leading-relaxed font-medium">"I love the prescription upload feature. I just take a photo of my doctor's note and the medicines arrive before I even get home from the clinic!"</p>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-black">SP</div>
+                    <div><h5 class="font-bold text-gray-900 uppercase text-sm">Sunita Pandey</h5><p class="text-xs text-gray-400 uppercase tracking-widest">Customer for 1 Year</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact & Location -->
+<section id="contact" class="py-24 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+        <div class="reveal">
+            <h3 class="text-4xl font-black text-gray-900 mb-8 uppercase leading-tight italic">Find Us <span class="text-blue-600">Near You</span></h3>
+            <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center text-blue-600 flex-shrink-0">📍</div>
+                    <div><h5 class="font-bold">Main Store</h5><p class="text-gray-500 text-sm">Near Metro Station, Sector 18, Noida, UP 201301</p></div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center justify-center text-blue-700 flex-shrink-0">📞</div>
+                    <div><h5 class="font-bold">Contact Number</h5><p class="text-gray-500 text-sm">+91 98765 43210<br>+91 120 4455 667</p></div>
+                </div>
+            </div>
+            <div class="mt-12 rounded-3xl overflow-hidden grayscale border border-gray-100 h-64">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.4321!2d77.321!3d28.57!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjhCsDM0JzEyLjAiTiA3N8KwMTknMTUuNiJF!5e0!3m2!1sen!2sin!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="bg-gray-950 p-8 md:p-12 rounded-[3rem] text-white reveal shadow-2xl">
+            <h4 class="text-2xl font-black mb-6 uppercase italic tracking-tighter">Emergency <span class="text-blue-600">Enquiry</span></h4>
+            <form onsubmit="event.preventDefault(); alert('Emergency Query Received! Calling you back in 5 mins.'); this.reset();" class="space-y-6">
+                <input type="text" placeholder="Your Name" required class="w-full p-5 rounded-2xl bg-gray-900 border border-gray-800 focus:border-blue-600 outline-none transition-all placeholder:text-gray-700 font-medium">
+                <input type="tel" placeholder="Mobile Number" required class="w-full p-5 rounded-2xl bg-gray-900 border border-gray-800 focus:border-blue-600 outline-none transition-all placeholder:text-gray-700 font-medium">
+                <textarea placeholder="Tell us what you need (Medicines/Services)..." required class="w-full p-5 rounded-2xl bg-gray-900 border border-gray-800 focus:border-blue-600 outline-none h-40 transition-all placeholder:text-gray-700 font-medium"></textarea>
+                <button type="submit" class="w-full bg-blue-600 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-blue-900/40">Request Immediate Call</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-gray-100 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 text-left mb-16">
+            <!-- Brand -->
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-6 h-6 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-sm">+</div>
+                    <h2 class="text-lg font-black tracking-tighter text-gray-900 uppercase">HealthCare</h2>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium">Your neighborhood pharmacy committed to delivering 100% genuine medicines and wellness products 24/7.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-gray-900 font-black uppercase tracking-widest text-xs mb-6">Navigation</h4>
+                <ul class="text-gray-500 space-y-4 text-sm font-medium">
+                    <li><a href="#" class="hover:text-blue-600 transition-colors">Home</a></li>
+                    <li><a href="#categories" class="hover:text-blue-600 transition-colors">Medicine Store</a></li>
+                    <li><a href="#prescription" class="hover:text-blue-600 transition-colors">Upload Prescription</a></li>
+                    <li><a href="#contact" class="hover:text-blue-600 transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Shop -->
+            <div>
+                <h4 class="text-gray-900 font-black uppercase tracking-widest text-xs mb-6">Shop By</h4>
+                <ul class="text-gray-500 space-y-4 text-sm font-medium">
+                    <li><a href="#" class="hover:text-blue-600 transition-colors">Baby Care</a></li>
+                    <li><a href="#" class="hover:text-blue-600 transition-colors">Wellness Products</a></li>
+                    <li><a href="#" class="hover:text-blue-600 transition-colors">Health Devices</a></li>
+                    <li><a href="#" class="hover:text-blue-600 transition-colors">Personal Care</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4 class="text-gray-900 font-black uppercase tracking-widest text-xs mb-6">Store Info</h4>
+                <ul class="text-gray-500 space-y-4 text-sm font-medium">
+                    <li class="flex items-start gap-2">📍 <span>Sector 18, Noida, Uttar Pradesh</span></li>
+                    <li class="flex items-center gap-2">📞 <span>+91 98765 43210</span></li>
+                    <li class="flex items-center gap-2">🕒 <span>Open 24/7 (All Days)</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-12 border-t border-gray-100">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <div class="text-gray-400 mb-2 text-[10px] font-black uppercase tracking-[0.3em]">
+                        Designed & Secured by <span class="text-blue-600 font-bold uppercase tracking-widest">@secure_with_rajat</span>
+                    </div>
+                    <div class="flex justify-center md:justify-start gap-4 text-[8px] font-black uppercase tracking-widest text-gray-400">
+                        <span>Drug License: DL-123456/26</span>
+                        <span>GST: 09ABCDE1234F1Z5</span>
+                    </div>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="flex items-center gap-6 opacity-40 grayscale">
+                    <span class="flex items-center gap-1 text-[8px] font-black uppercase tracking-widest"><svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.9L9.03 9.103c.628.384 1.313.384 1.942 0L17.834 4.9A1 1 0 0016 3.235l-5.166 3.146a1 1 0 01-1.668 0L4 3.235A1 1 0 002.166 4.9z" clip-rule="evenodd"></path><path d="M10 11.536l-7.834-4.773A1 1 0 001 7.636v7.364a1 1 0 001 1h16a1 1 0 001-1V7.636a1 1 0 00-1.166-.873L10 11.536z"></path></svg> SSL Secure</span>
+                    <span class="flex items-center gap-1 text-[8px] font-black uppercase tracking-widest"><svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg> HIPAA Compliant</span>
+                    <span class="flex items-center gap-1 text-[8px] font-black uppercase tracking-widest"><svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg> 24/7 Monitoring</span>
+                </div>
+            </div>
+            <p class="mt-12 text-center text-gray-300 text-[9px] uppercase tracking-widest italic">© 2026 HealthCare Pharmacy. Delivering Trust & Professional Health Care Services.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile Menu Logic
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    });
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+    // Scroll Reveal Logic
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(reveal => observer.observe(reveal));
+</script>
+
+</body>
+</html>

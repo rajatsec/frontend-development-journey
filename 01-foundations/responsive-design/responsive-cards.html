@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card Stack - Foundations</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; background: #eee; padding: 40px 20px; }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            flex: 1 1 calc(33.333% - 20px);
+            min-width: 280px;
+            padding: 20px;
+            border-top: 5px solid #ff4d4d;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 { margin-bottom: 10px; }
+        p { color: #555; line-height: 1.6; }
+
+        @media (max-width: 900px) {
+            .card { flex: 1 1 calc(50% - 20px); }
+        }
+        @media (max-width: 600px) {
+            .card { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Basic Plan</h2>
+            <p>Essential features to get your business online today.</p>
+        </div>
+        <div class="card">
+            <h2>Pro Plan</h2>
+            <p>Advanced tools for growing businesses looking to scale.</p>
+        </div>
+        <div class="card">
+            <h2>Expert Plan</h2>
+            <p>Complete solution with 24/7 priority support and custom features.</p>
+        </div>
+    </div>
+</body>
+</html>

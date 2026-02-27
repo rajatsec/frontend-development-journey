@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Event Tester - Event Handling</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; display: flex; align-items: center; justify-content: center; height: 100vh; background: #111; color: #00ff00; }
+        .display { text-align: center; border: 2px solid #333; padding: 50px; border-radius: 10px; box-shadow: 0 0 30px rgba(0,255,0,0.1); }
+        .key-code { font-size: 5rem; margin: 20px 0; }
+        .key-name { font-size: 1.5rem; color: #888; text-transform: uppercase; letter-spacing: 5px; }
+    </style>
+</head>
+<body>
+    <div class="display">
+        <p>PRESS ANY KEY</p>
+        <div class="key-code" id="keyCode">0</div>
+        <div class="key-name" id="keyName">None</div>
+    </div>
+
+    <script>
+        const keyCode = document.getElementById('keyCode');
+        const keyName = document.getElementById('keyName');
+
+        document.addEventListener('keydown', (e) => {
+            keyCode.textContent = e.keyCode;
+            keyName.textContent = e.key === ' ' ? 'Space' : e.key;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar - Foundations</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; }
+        nav {
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { color: white; text-decoration: none; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">RAJATSEC</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">☰</div>
+    </nav>
+    <div style="padding: 20px;">
+        <h2>Mobile-First Navigation</h2>
+        <p>Resize the window to see the navigation links disappear and the hamburger menu icon appear on mobile screens.</p>
+    </div>
+</body>
+</html>

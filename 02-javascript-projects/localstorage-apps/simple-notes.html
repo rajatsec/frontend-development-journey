@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Notes - LocalStorage Practice</title>
+    <style>
+        body { font-family: sans-serif; background: #eee; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        textarea { width: 100%; height: 150px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; box-sizing: border-box; resize: none; }
+        button { background: #333; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; width: 100%; font-weight: bold; }
+        button:hover { background: #555; }
+        .status { text-align: center; color: green; margin-top: 10px; height: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Notepad</h2>
+        <textarea id="noteText" placeholder="Start typing... everything is saved to local storage."></textarea>
+        <button id="saveBtn">Save Locally</button>
+        <div class="status" id="status"></div>
+    </div>
+
+    <script>
+        const noteText = document.getElementById('noteText');
+        const saveBtn = document.getElementById('saveBtn');
+        const status = document.getElementById('status');
+
+        // Load saved note on startup
+        const savedNote = localStorage.getItem('userNote');
+        if (savedNote) noteText.value = savedNote;
+
+        saveBtn.addEventListener('click', () => {
+            localStorage.setItem('userNote', noteText.value);
+            status.textContent = 'Saved Successfully!';
+            setTimeout(() => status.textContent = '', 2000);
+        });
+    </script>
+</body>
+</html>

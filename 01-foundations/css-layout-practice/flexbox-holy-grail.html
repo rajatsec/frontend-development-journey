@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Holy Grail Layout - Foundations</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { display: flex; flex-direction: column; min-height: 100vh; font-family: sans-serif; }
+        header, footer { background: #333; color: white; padding: 20px; text-align: center; }
+        main { display: flex; flex: 1; }
+        article { flex: 3; padding: 20px; background: #f4f4f4; }
+        nav, aside { flex: 1; padding: 20px; background: #ddd; }
+        nav { order: -1; } /* Left sidebar */
+        
+        @media (max-width: 768px) {
+            main { flex-direction: column; }
+            nav, aside, article { flex: auto; }
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Header</h1></header>
+    <main>
+        <article><h2>Main Content</h2><p>This is the primary area for content.</p></article>
+        <nav><h3>Navigation</h3><ul><li>Home</li><li>About</li></ul></nav>
+        <aside><h3>Sidebar</h3><p>Additional info here.</p></aside>
+    </main>
+    <footer><p>Footer &copy; 2026</p></footer>
+</body>
+</html>

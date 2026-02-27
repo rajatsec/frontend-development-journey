@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luxe Living - Premium Real Estate & Luxury Homes. Find your dream home with our expert consultants.">
+    <title>Luxe Living | Premium Real Estate & Luxury Homes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center;
+        }
+        #mobile-menu { transition: transform 0.4s cubic-bezier(0.77,0.2,0.05,1.0); }
+        #scroll-top { transition: all 0.3s ease; opacity: 0; visibility: hidden; }
+        #scroll-top.show { opacity: 1; visibility: visible; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 selection:bg-blue-600 selection:text-white relative overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md border-b sticky top-0 z-[100]" aria-label="Main Navigation">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold text-blue-900 tracking-tight flex items-center">
+                <i class="fas fa-home-alt mr-3 text-blue-600"></i>Luxe<span class="text-blue-500 font-medium">Living</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-semibold text-sm">
+                <a href="#properties" class="hover:text-blue-600 transition" aria-label="View Properties">Properties</a>
+                <a href="#services" class="hover:text-blue-600 transition" aria-label="Our Services">Services</a>
+                <a href="#about" class="hover:text-blue-600 transition" aria-label="About Us">About</a>
+                <a href="#emi" class="hover:text-blue-600 transition" aria-label="EMI Calculator">EMI Calc</a>
+                <a href="#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200 text-xs uppercase tracking-widest" aria-label="List your property">List Property</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-2xl text-blue-900 focus:outline-none" aria-label="Toggle Mobile Menu"><i class="fas fa-bars"></i></button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-blue-900 text-white z-[110] transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-10">
+            <div class="absolute top-6 left-8 text-2xl font-extrabold flex items-center">
+                <i class="fas fa-home-alt mr-3 text-blue-400"></i>Luxe<span class="text-white font-medium">Living</span>
+            </div>
+            <button id="close-btn" class="absolute top-6 right-8 text-3xl" aria-label="Close Menu"><i class="fas fa-times"></i></button>
+            <a href="#properties" class="mobile-link text-2xl font-bold tracking-tight">Properties</a>
+            <a href="#services" class="mobile-link text-2xl font-bold tracking-tight">Services</a>
+            <a href="#about" class="mobile-link text-2xl font-bold tracking-tight">About Us</a>
+            <a href="#emi" class="mobile-link text-2xl font-bold tracking-tight">EMI Calculator</a>
+            <a href="#contact" class="mobile-link bg-white text-blue-900 px-12 py-4 rounded-full font-bold shadow-xl">Contact Expert</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-[90vh] flex items-center justify-center px-4 md:px-6 text-center">
+        <div class="max-w-5xl reveal">
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight">Find Your <span class="text-blue-400">Dream Home</span> in Paradise.</h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">The most exclusive luxury properties curated for your elite lifestyle.</p>
+            
+            <form id="hero-search" class="bg-white p-3 md:p-4 rounded-2xl md:rounded-full shadow-2xl flex flex-col md:flex-row gap-2 max-w-4xl mx-auto">
+                <div class="flex-1 px-4 flex items-center border-b md:border-b-0 md:border-r border-gray-100">
+                    <i class="fas fa-map-marker-alt text-blue-500 mr-3" aria-hidden="true"></i>
+                    <input type="text" required placeholder="Location" class="w-full outline-none py-2 text-sm font-medium" aria-label="Location">
+                </div>
+                <div class="flex-1 px-4 flex items-center border-b md:border-b-0 md:border-r border-gray-100">
+                    <i class="fas fa-house-user text-blue-500 mr-3" aria-hidden="true"></i>
+                    <select class="w-full outline-none py-2 text-sm font-medium bg-transparent text-gray-500" aria-label="Property Type">
+                        <option>Apartment</option><option>Villa</option><option>Penthouse</option>
+                    </select>
+                </div>
+                <div class="flex-1 px-4 flex items-center border-b md:border-b-0 md:border-r border-gray-100">
+                    <i class="fas fa-wallet text-blue-500 mr-3" aria-hidden="true"></i>
+                    <select class="w-full outline-none py-2 text-sm font-medium bg-transparent text-gray-500" aria-label="Budget Range">
+                        <option>Budget Range</option>
+                        <option>₹1 Cr - ₹3 Cr</option>
+                        <option>₹3 Cr - ₹7 Cr</option>
+                        <option>₹7 Cr - ₹15 Cr</option>
+                        <option>₹15 Cr +</option>
+                    </select>
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-10 py-3.5 rounded-xl md:rounded-full hover:bg-blue-700 transition font-bold shadow-lg uppercase tracking-widest text-xs">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white -mt-10 relative z-10 mx-4 md:mx-auto max-w-6xl rounded-3xl shadow-xl reveal">
+        <div class="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center md:divide-x divide-gray-100">
+            <div class="p-2"><div class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-1">2k+</div><div class="text-[10px] text-gray-500 font-bold uppercase tracking-tighter">Ready Property</div></div>
+            <div class="p-2"><div class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-1">500+</div><div class="text-[10px] text-gray-500 font-bold uppercase tracking-tighter">Happy Customers</div></div>
+            <div class="p-2"><div class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-1">15+</div><div class="text-[10px] text-gray-500 font-bold uppercase tracking-tighter">Award Winning</div></div>
+            <div class="p-2"><div class="text-2xl md:text-3xl font-extrabold text-blue-900 mb-1">10+</div><div class="text-[10px] text-gray-500 font-bold uppercase tracking-tighter">Years Experience</div></div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section id="properties" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal">
+                <div>
+                    <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Best Choice</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">Featured Properties</h2>
+                </div>
+                <button onclick="alert('Viewing all properties list...')" class="text-blue-600 font-bold hover:underline">View All Properties <i class="fas fa-arrow-right ml-2 text-xs"></i></button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Property Card 1 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 group hover:shadow-2xl transition-all duration-500 reveal">
+                    <div class="h-64 relative overflow-hidden">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Luxury Villa Interior" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">New Listing</div>
+                        <button class="absolute top-4 right-4 bg-white/80 p-3 rounded-full text-red-500 hover:bg-red-500 hover:text-white transition" aria-label="Add to Wishlist"><i class="fas fa-heart"></i></button>
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl text-blue-900 font-extrabold">₹4.5 Cr</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Emerald Forest Villa</h3>
+                        <p class="text-slate-500 text-sm mb-6 flex items-center"><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Sector 45, Gurugram</p>
+                        <div class="flex justify-between border-t border-slate-50 pt-6 mb-6 text-slate-600">
+                            <div class="flex items-center"><i class="fas fa-bed text-blue-500 mr-2"></i><span class="text-xs font-semibold">4 Bed</span></div>
+                            <div class="flex items-center"><i class="fas fa-bath text-blue-500 mr-2"></i><span class="text-xs font-semibold">3 Bath</span></div>
+                            <div class="flex items-center"><i class="fas fa-square text-blue-500 mr-2"></i><span class="text-xs font-semibold">2.5k sqft</span></div>
+                        </div>
+                        <button onclick="alert('Opening Emerald Villa details...')" class="w-full border-2 border-blue-600 text-blue-600 font-bold py-3 rounded-xl hover:bg-blue-600 hover:text-white transition uppercase tracking-widest text-xs">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 group hover:shadow-2xl transition-all duration-500 reveal">
+                    <div class="h-64 relative overflow-hidden">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Penthouse Interior" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 left-4 bg-red-600 text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Hot Property</div>
+                        <button class="absolute top-4 right-4 bg-white/80 p-3 rounded-full text-red-500 hover:bg-red-500 hover:text-white transition" aria-label="Add to Wishlist"><i class="fas fa-heart"></i></button>
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl text-blue-900 font-extrabold">₹2.8 Cr</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Skyline Penthouse</h3>
+                        <p class="text-slate-500 text-sm mb-6 flex items-center"><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Worli, Mumbai</p>
+                        <div class="flex justify-between border-t border-slate-50 pt-6 mb-6 text-slate-600">
+                            <div class="flex items-center"><i class="fas fa-bed text-blue-500 mr-2"></i><span class="text-xs font-semibold">3 Bed</span></div>
+                            <div class="flex items-center"><i class="fas fa-bath text-blue-500 mr-2"></i><span class="text-xs font-semibold">3 Bath</span></div>
+                            <div class="flex items-center"><i class="fas fa-square text-blue-500 mr-2"></i><span class="text-xs font-semibold">1.8k sqft</span></div>
+                        </div>
+                        <button onclick="alert('Opening Skyline details...')" class="w-full border-2 border-blue-600 text-blue-600 font-bold py-3 rounded-xl hover:bg-blue-600 hover:text-white transition uppercase tracking-widest text-xs">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 group hover:shadow-2xl transition-all duration-500 reveal">
+                    <div class="h-64 relative overflow-hidden">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mansion View" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute top-4 left-4 bg-orange-500 text-white px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Premium</div>
+                        <button class="absolute top-4 right-4 bg-white/80 p-3 rounded-full text-red-500 hover:bg-red-500 hover:text-white transition" aria-label="Add to Wishlist"><i class="fas fa-heart"></i></button>
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl text-blue-900 font-extrabold">₹8.2 Cr</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Ocean View Mansion</h3>
+                        <p class="text-slate-500 text-sm mb-6 flex items-center"><i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>Candolim, Goa</p>
+                        <div class="flex justify-between border-t border-slate-50 pt-6 mb-6 text-slate-600">
+                            <div class="flex items-center"><i class="fas fa-bed text-blue-500 mr-2"></i><span class="text-xs font-semibold">6 Bed</span></div>
+                            <div class="flex items-center"><i class="fas fa-bath text-blue-500 mr-2"></i><span class="text-xs font-semibold">7 Bath</span></div>
+                            <div class="flex items-center"><i class="fas fa-square text-blue-500 mr-2"></i><span class="text-xs font-semibold">5.0k sqft</span></div>
+                        </div>
+                        <button onclick="alert('Opening Mansion details...')" class="w-full border-2 border-blue-600 text-blue-600 font-bold py-3 rounded-xl hover:bg-blue-600 hover:text-white transition uppercase tracking-widest text-xs">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (FULL STRUCTURE - Why Luxe Living) -->
+    <section id="about" class="py-24 bg-blue-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            <div class="reveal">
+                <span class="text-blue-400 font-bold uppercase tracking-[0.2em] text-sm">Our Legacy</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mt-4 mb-8 leading-tight tracking-tight">Defining the Standard of <span class="text-blue-400">Luxury</span> Real Estate.</h2>
+                <div class="space-y-10">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-3xl text-blue-300 mr-6 flex-shrink-0 shadow-xl border border-white/5"><i class="fa-solid fa-shield"></i></div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">100% Legal Transparency</h4>
+                            <p class="text-blue-100 text-sm opacity-80 leading-relaxed">Every property listed on Luxe Living undergoes a rigorous 25-point legal audit by our in-house legal team to ensure your investment is safe.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-3xl text-blue-300 mr-6 flex-shrink-0 shadow-xl border border-white/5"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">Market Exclusive Inventory</h4>
+                            <p class="text-blue-100 text-sm opacity-80 leading-relaxed">Access off-market properties and early-bird investor deals that are not available on common listing websites.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-3xl text-blue-300 mr-6 flex-shrink-0 shadow-xl border border-white/5"><i class="fas fa-concierge-bell"></i></div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2">VIP Concierge Service</h4>
+                            <p class="text-blue-100 text-sm opacity-80 leading-relaxed">From private jet site tours to seamless documentation and interior setup, we handle every detail of your luxury transition.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative reveal mt-12 lg:mt-0">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Our Modern Office" class="rounded-[3rem] shadow-2xl border-8 border-white/5 transform lg:rotate-2 w-full">
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 md:p-10 rounded-3xl shadow-2xl hidden md:block border border-slate-100">
+                    <div class="text-blue-900 text-4xl md:text-5xl font-extrabold mb-1">99%</div>
+                    <div class="text-slate-500 font-bold text-[10px] uppercase tracking-[0.2em]">Client Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Our Expertise</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">Global Real Estate Services</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-10 rounded-[2rem] bg-slate-50 hover:bg-blue-600 transition-all duration-500 group reveal shadow-sm hover:shadow-2xl border border-slate-100">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl text-white mb-8 group-hover:bg-white group-hover:text-blue-600 shadow-xl transition-colors"><i class="fas fa-chart-line"></i></div>
+                    <h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Property Valuation</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed group-hover:text-white transition-colors">Data-driven market analysis to price your assets for maximum investment returns.</p>
+                </div>
+                <div class="p-10 rounded-[2rem] bg-slate-50 hover:bg-blue-600 transition-all duration-500 group reveal shadow-sm hover:shadow-2xl border border-slate-100">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl text-white mb-8 group-hover:bg-white group-hover:text-blue-600 shadow-xl transition-colors"><i class="fas fa-couch"></i></div>
+                    <h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Home Staging</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed group-hover:text-white transition-colors">Professional interior styling to make your property stand out and sell 2x faster.</p>
+                </div>
+                <div class="p-10 rounded-[2rem] bg-slate-50 hover:bg-blue-600 transition-all duration-500 group reveal shadow-sm hover:shadow-2xl border border-slate-100">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl text-white mb-8 group-hover:bg-white group-hover:text-blue-600 shadow-xl transition-colors"><i class="fas fa-file-contract"></i></div>
+                    <h4 class="text-xl font-bold mb-4 group-hover:text-white transition-colors">Legal & Tax Advisory</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed group-hover:text-white transition-colors">Specialized advice on property taxes, RERA filings, and cross-border registration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (3 CARDS for Psychological Impact) -->
+    <section id="testimonials" class="py-24 bg-slate-50 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-blue-600 font-bold tracking-widest uppercase text-sm">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2 tracking-tight">Trusted by Industry Leaders</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl reveal relative border border-slate-100">
+                    <i class="fas fa-quote-left absolute top-10 right-10 text-6xl text-slate-50"></i>
+                    <div class="flex text-yellow-400 mb-6 text-xs space-x-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 leading-relaxed italic mb-8 relative z-10 text-base font-medium">"Found my dream penthouse in Mumbai with zero hassle. The VIP service was exceptional!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg shadow-blue-200">AS</div>
+                        <div class="ml-4"><h4 class="font-bold text-slate-900 text-sm">Arjun Sharma</h4><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Tech Entrepreneur</p></div>
+                    </div>
+                </div>
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl reveal relative border border-slate-100">
+                    <i class="fas fa-quote-left absolute top-10 right-10 text-6xl text-slate-50"></i>
+                    <div class="flex text-yellow-400 mb-6 text-xs space-x-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 leading-relaxed italic mb-8 relative z-10 text-base font-medium">"Legal transparency was my priority. Luxe Living's team handled everything perfectly."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg shadow-blue-200">PM</div>
+                        <div class="ml-4"><h4 class="font-bold text-slate-900 text-sm">Priya Mehta</h4><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Creative Director</p></div>
+                    </div>
+                </div>
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl reveal relative border border-slate-100">
+                    <i class="fas fa-quote-left absolute top-10 right-10 text-6xl text-slate-50"></i>
+                    <div class="flex text-yellow-400 mb-6 text-xs space-x-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-slate-600 leading-relaxed italic mb-8 relative z-10 text-base font-medium">"The best inventory in Gurgaon. I saw properties that weren't even listed elsewhere!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg shadow-blue-200">RK</div>
+                        <div class="ml-4"><h4 class="font-bold text-slate-900 text-sm">Rohan Khanna</h4><p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Investment Banker</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMI Calculator (Upgraded) -->
+    <section id="emi" class="py-24 bg-white">
+        <div class="container mx-auto px-6 text-slate-900">
+            <div class="max-w-5xl mx-auto bg-slate-50 p-8 md:p-16 rounded-[3rem] border border-slate-200 reveal shadow-inner">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-blue-900 tracking-tight">Investment Planner</h2>
+                    <p class="text-slate-500 uppercase tracking-widest text-xs font-extrabold">Calculate your home loan EMI</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-blue-600">Loan Amount (₹)</label>
+                            <input type="range" id="loan-amount" min="1000000" max="100000000" step="500000" value="5000000" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="text-2xl font-extrabold">₹ <span id="amount-label">50,00,000</span></div>
+                        </div>
+                        <div class="space-y-4">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-blue-600">Tenure (Years)</label>
+                            <input type="range" id="loan-tenure" min="1" max="30" value="20" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="text-2xl font-extrabold"><span id="tenure-label">20</span> Years</div>
+                        </div>
+                        <div class="space-y-4">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-blue-600">Interest Rate (% p.a.)</label>
+                            <input type="range" id="loan-rate" min="5" max="15" step="0.1" value="8.5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="text-2xl font-extrabold"><span id="rate-label">8.5</span>%</div>
+                        </div>
+                    </div>
+                    <div class="bg-blue-600 text-white p-8 md:p-10 rounded-[2rem] text-center shadow-2xl transform hover:scale-105 transition duration-500 border border-white/10">
+                        <div class="text-xs font-bold uppercase tracking-[0.2em] mb-4 opacity-80">Estimated Monthly EMI</div>
+                        <div class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tighter">₹ <span id="monthly-emi">43,391</span></div>
+                        <button onclick="document.getElementById('contact').scrollIntoView()" class="mt-8 bg-white text-blue-600 px-10 py-4 rounded-full font-bold hover:bg-gray-100 transition w-full shadow-lg text-xs uppercase tracking-widest border-none">Book Consultation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Visit Section -->
+    <section id="schedule" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="bg-blue-600 rounded-[3rem] p-10 md:p-20 text-white flex flex-col lg:flex-row items-center gap-12 reveal shadow-2xl">
+                <div class="lg:w-1/2 text-left">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight text-white tracking-tight">Schedule a Private Tour</h2>
+                    <p class="text-blue-100 text-lg leading-relaxed mb-10 font-light italic">Experience luxury in person. Select your property and preferred time slot for a private guided walkthrough.</p>
+                    <div class="flex items-center text-sm font-bold uppercase tracking-widest text-blue-300">
+                        <i class="fas fa-calendar-check mr-4 text-3xl"></i>
+                        <span>Immediate Call Back Confirmed</span>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 w-full bg-white p-8 md:p-10 rounded-[2rem] shadow-2xl text-slate-900 border border-white/10">
+                    <form id="visit-form" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" required placeholder="Full Name" class="bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 text-sm border-none w-full" aria-label="Full Name">
+                            <input type="tel" required placeholder="Phone Number" class="bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 text-sm border-none w-full" aria-label="Phone Number">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="date" required class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 text-sm border-none" aria-label="Tour Date">
+                            <input type="time" required class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 text-sm border-none" aria-label="Tour Time">
+                        </div>
+                        <select required class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 text-sm text-gray-500 border-none" aria-label="Select Property">
+                            <option value="">Select Property</option>
+                            <option>Emerald Forest Villa</option><option>Skyline Penthouse</option><option>Ocean View Mansion</option>
+                        </select>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-extrabold py-4 rounded-xl hover:bg-blue-700 transition uppercase tracking-widest text-sm shadow-xl mt-4">Confirm Schedule</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden flex flex-col lg:flex-row reveal border border-slate-100">
+                <div class="lg:w-1/2 p-10 md:p-20 bg-blue-600 text-white">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 leading-tight text-white tracking-tight">Let's Talk Business</h2>
+                    <p class="text-blue-100 text-lg mb-12 font-light">Leave your details and our senior portfolio manager will reach out within 24 hours.</p>
+                    <div class="space-y-10">
+                        <div class="flex items-center"><i class="fas fa-phone-alt bg-white/10 p-5 rounded-2xl mr-6 w-16 h-16 flex items-center justify-center text-xl shadow-inner border border-white/5"></i><span class="font-bold text-lg">+91 98765 00000</span></div>
+                        <div class="flex items-center"><i class="fas fa-envelope bg-white/10 p-5 rounded-2xl mr-6 w-16 h-16 flex items-center justify-center text-xl shadow-inner border border-white/5"></i><span class="font-bold text-lg">sales@luxeliving.com</span></div>
+                        <div class="flex items-center"><i class="fas fa-map-marker-alt bg-white/10 p-5 rounded-2xl mr-6 w-16 h-16 flex items-center justify-center text-xl shadow-inner border border-white/5"></i><span class="font-bold leading-relaxed text-sm">Elite Heights, Cyber City, Sector 24,<br>Gurugram, Haryana - 122002</span></div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 p-10 md:p-20 bg-white">
+                    <form id="main-contact" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
+                                <input type="text" required placeholder="Rajat Singh" class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 border-none">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Phone Number</label>
+                                <input type="tel" required placeholder="+91 98765..." class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 border-none">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Email Address</label>
+                            <input type="email" required placeholder="rajat@example.com" class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 border-none">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">Requirement Details</label>
+                            <textarea required placeholder="I'm looking for a 3BHK villa in..." class="w-full bg-slate-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-600 border-none" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-extrabold py-5 rounded-xl hover:bg-blue-700 transition shadow-xl uppercase tracking-widest text-sm border-none">Request Call Back</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="main-footer" class="bg-slate-900 text-slate-400 py-24">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 text-left">
+                <div class="md:col-span-1">
+                    <div class="text-3xl font-extrabold text-white mb-8 tracking-tight flex items-center">
+                        <i class="fas fa-home-alt mr-3 text-blue-500"></i>LuxeLiving
+                    </div>
+                    <p class="text-sm leading-relaxed font-light">Finding the finest luxury properties since 2015. Your journey home starts with us.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Quick Links</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><a href="#properties" class="hover:text-white transition" aria-label="Featured Properties">Featured Properties</a></li>
+                        <li><a href="#services" class="hover:text-white transition" aria-label="Our Services">Our Services</a></li>
+                        <li><a href="#about" class="hover:text-white transition" aria-label="About Us">About Us</a></li>
+                        <li><a href="#emi" class="hover:text-white transition" aria-label="EMI Calculator">EMI Calculator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Legal Transparency</h4>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li><button class="legal-link hover:text-white transition" aria-label="Privacy Policy">Privacy Policy</button></li>
+                        <li><button class="legal-link hover:text-white transition" aria-label="Terms and Conditions">Terms & Conditions</button></li>
+                        <li><button class="legal-link hover:text-white transition" aria-label="RERA Registration">RERA Registration</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Follow Us</h4>
+                    <div class="flex space-x-6 text-2xl">
+                        <button id="ig-demo" class="hover:text-white transition transform hover:scale-110" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></button>
+                        <button id="fb-demo" class="hover:text-white transition transform hover:scale-110" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></button>
+                        <button id="tw-demo" class="hover:text-white transition transform hover:scale-110" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></button>
+                    </div>
+                    <p class="mt-10 text-[10px] uppercase tracking-widest font-bold text-slate-500 leading-relaxed">
+                        Developed by <a href="https://instagram.com/secure_with_rajat" target="_blank" class="text-blue-500 hover:text-white transition">@secure_with_rajat</a><br>Portfolio Practice Project
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-[10px] tracking-[0.2em] uppercase font-bold">
+                <p>&copy; 2026 Luxe Living Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <div id="whatsapp-container" class="fixed bottom-8 right-8 z-[90] flex items-center group transition-all duration-500">
+        <div class="bg-white text-blue-900 px-6 py-2 rounded-full mr-4 shadow-xl text-xs font-extrabold opacity-0 group-hover:opacity-100 transition duration-300 transform translate-x-4 group-hover:translate-x-0 hidden md:block">Talk to Expert</div>
+        <button onclick="alert('Demo: Opening WhatsApp Business Chat!')" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition transform" aria-label="Contact on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" class="fixed bottom-24 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-2xl z-[90] flex items-center justify-center hover:bg-blue-700 transition transform hover:scale-110" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const toggleMenu = () => mobileMenu.classList.toggle('translate-x-full');
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        const amountInput = document.getElementById('loan-amount');
+        const tenureInput = document.getElementById('loan-tenure');
+        const rateInput = document.getElementById('loan-rate');
+        const amountLabel = document.getElementById('amount-label');
+        const tenureLabel = document.getElementById('tenure-label');
+        const rateLabel = document.getElementById('rate-label');
+        const emiLabel = document.getElementById('monthly-emi');
+
+        function calculateEMI() {
+            const P = parseFloat(amountInput.value);
+            const r = parseFloat(rateInput.value) / 12 / 100;
+            const n = parseFloat(tenureInput.value) * 12;
+            const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            amountLabel.innerText = Number(P).toLocaleString('en-IN');
+            tenureLabel.innerText = tenureInput.value;
+            rateLabel.innerText = rateInput.value;
+            emiLabel.innerText = Math.round(emi).toLocaleString('en-IN');
+        }
+        [amountInput, tenureInput, rateInput].forEach(inp => inp.addEventListener('input', calculateEMI));
+
+        const handleForm = (id, msg) => {
+            const form = document.getElementById(id);
+            if(form) form.addEventListener('submit', (e) => { e.preventDefault(); alert(msg); form.reset(); });
+        };
+        handleForm('hero-search', 'Searching elite matches for your budget...');
+        handleForm('visit-form', 'Tour scheduled! Our concierge will call you back.');
+        handleForm('main-contact', 'Inquiry sent! A senior portfolio manager will call you.');
+
+        document.querySelectorAll('.legal-link').forEach(btn => {
+            btn.addEventListener('click', () => alert('Demo: Viewing Protected Document...'));
+        });
+        document.getElementById('fb-demo').addEventListener('click', () => alert('Demo: Redirecting to Luxe FB...'));
+        document.getElementById('tw-demo').addEventListener('click', () => alert('Demo: Redirecting to Luxe Twitter...'));
+        document.getElementById('ig-demo').addEventListener('click', () => alert('Demo: Redirecting to Luxe Instagram...'));
+
+        const whatsappContainer = document.getElementById('whatsapp-container');
+        const footer = document.getElementById('main-footer');
+        const scrollTopBtn = document.getElementById('scroll-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) scrollTopBtn.classList.add('show');
+            else scrollTopBtn.classList.remove('show');
+
+            const footerTop = footer.getBoundingClientRect().top;
+            if (footerTop < window.innerHeight) whatsappContainer.classList.add('opacity-0', 'pointer-events-none');
+            else whatsappContainer.classList.remove('opacity-0', 'pointer-events-none');
+        });
+
+        scrollTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>
